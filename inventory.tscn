@@ -1,0 +1,1010 @@
+[gd_scene load_steps=11 format=3 uid="uid://b8yud8qnla8m1"]
+
+[ext_resource type="Script" path="res://inventory.gd" id="1_ab2d5"]
+[ext_resource type="Texture2D" uid="uid://dhvh4oeh5vubn" path="res://Inventory_Slot_Asset.png" id="1_y7ldr"]
+[ext_resource type="FontFile" uid="uid://ct5pmfxk4binc" path="res://stormfaze/Stormfaze.otf" id="2_bwau6"]
+[ext_resource type="Theme" uid="uid://br13ib4sc4ok8" path="res://default_theme.tres" id="2_r7e3h"]
+[ext_resource type="Texture2D" uid="uid://dp8gri7ni5kgh" path="res://Hovered_Inventory_Slot_Asset.png" id="3_vqqib"]
+[ext_resource type="Texture2D" uid="uid://danp4645jg8fa" path="res://Clear_Inventory_Slot.png" id="6_64ss7"]
+[ext_resource type="Texture2D" uid="uid://d1ytrcd38brjp" path="res://blue_arrow.png" id="6_432d0"]
+[ext_resource type="Texture2D" uid="uid://cep3lpuxt74d6" path="res://Money_Image.png" id="7_j4u2n"]
+[ext_resource type="AudioStream" uid="uid://dgpstp7u0rbih" path="res://button-202966.mp3" id="7_nhos4"]
+[ext_resource type="AudioStream" uid="uid://i0fir38qv08b" path="res://coins.mp3" id="9_cupmq"]
+
+[node name="Inventory" type="CanvasLayer"]
+script = ExtResource("1_ab2d5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.0784314, 0.129412, 0.513726)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/HBoxContainer"]
+custom_minimum_size = Vector2(540, 0)
+layout_mode = 2
+color = Color(0, 0.0784314, 0.129412, 0.839216)
+
+[node name="Market" type="Label" parent="ColorRect/HBoxContainer/ColorRect"]
+visible = false
+layout_mode = 0
+offset_left = 18.0
+offset_top = 278.0
+offset_right = 517.0
+offset_bottom = 366.0
+theme_override_fonts/font = ExtResource("2_bwau6")
+theme_override_font_sizes/font_size = 25
+text = "Select an item to Sell"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Sell_Slot" type="TextureButton" parent="ColorRect/HBoxContainer/ColorRect/Market"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 143.0
+offset_top = 66.0
+offset_right = -181.0
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+toggle_mode = true
+texture_normal = ExtResource("1_y7ldr")
+stretch_mode = 0
+
+[node name="Sell_Slot_Texture" type="TextureRect" parent="ColorRect/HBoxContainer/ColorRect/Market/Sell_Slot"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 170.0
+offset_bottom = 169.0
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Price_Label" type="Label" parent="ColorRect/HBoxContainer/ColorRect/Market"]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 293.0
+offset_right = 362.0
+offset_bottom = 316.0
+theme_override_fonts/font = ExtResource("2_bwau6")
+text = "Sell Price: 0"
+horizontal_alignment = 1
+
+[node name="SellButton" type="Button" parent="ColorRect/HBoxContainer/ColorRect/Market"]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 327.0
+offset_right = 272.0
+offset_bottom = 347.0
+theme = ExtResource("2_r7e3h")
+text = "Sell"
+
+[node name="IncreaseCatchButton" type="TextureButton" parent="ColorRect/HBoxContainer/ColorRect/Market"]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 88.0
+offset_right = 474.0
+offset_bottom = 139.0
+texture_normal = ExtResource("6_432d0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="ColorRect/HBoxContainer/ColorRect/Market"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 146.0
+offset_right = 513.0
+offset_bottom = 223.0
+theme_override_fonts/font = ExtResource("2_bwau6")
+theme_override_font_sizes/font_size = 13
+text = "Click to Increase catch chances of selected Fish (Stacks)"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Price_Upgrade_Label" type="Label" parent="ColorRect/HBoxContainer/ColorRect/Market"]
+layout_mode = 0
+offset_left = 409.0
+offset_top = 60.0
+offset_right = 486.0
+offset_bottom = 83.0
+theme_override_fonts/font = ExtResource("2_bwau6")
+text = "Price: 0"
+horizontal_alignment = 1
+
+[node name="Inventory_Row_1" type="CanvasGroup" parent="."]
+
+[node name="Inventory_Slot_1" type="TextureButton" parent="Inventory_Row_1"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 16.0
+offset_right = 360.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+toggle_mode = true
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_1/Inventory_Slot_1"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.2
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_2" type="TextureButton" parent="Inventory_Row_1"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 386.0
+offset_top = 16.0
+offset_right = 426.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+toggle_mode = true
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_1/Inventory_Slot_2"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.2
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_3" type="TextureButton" parent="Inventory_Row_1"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 452.0
+offset_top = 16.0
+offset_right = 492.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_1/Inventory_Slot_3"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.2
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_4" type="TextureButton" parent="Inventory_Row_1"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 518.0
+offset_top = 16.0
+offset_right = 558.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_1/Inventory_Slot_4"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.20001
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_5" type="TextureButton" parent="Inventory_Row_1"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 584.0
+offset_top = 16.0
+offset_right = 624.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_1/Inventory_Slot_5"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.20001
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_6" type="TextureButton" parent="Inventory_Row_1"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 650.0
+offset_top = 16.0
+offset_right = 690.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_1/Inventory_Slot_6"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.20001
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_7" type="TextureButton" parent="Inventory_Row_1"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 716.0
+offset_top = 16.0
+offset_right = 756.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_1/Inventory_Slot_7"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.2
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_8" type="TextureButton" parent="Inventory_Row_1"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 782.0
+offset_top = 16.0
+offset_right = 822.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_1/Inventory_Slot_8"]
+layout_mode = 0
+offset_left = 3.19995
+offset_top = 3.20001
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Row_2" type="CanvasGroup" parent="."]
+position = Vector2(0, 63)
+
+[node name="Inventory_Slot_1" type="TextureButton" parent="Inventory_Row_2"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 16.0
+offset_right = 360.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_2/Inventory_Slot_1"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.2
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_2" type="TextureButton" parent="Inventory_Row_2"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 386.0
+offset_top = 16.0
+offset_right = 426.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_2/Inventory_Slot_2"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.2
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_3" type="TextureButton" parent="Inventory_Row_2"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 452.0
+offset_top = 16.0
+offset_right = 492.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_2/Inventory_Slot_3"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.2
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_4" type="TextureButton" parent="Inventory_Row_2"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 518.0
+offset_top = 16.0
+offset_right = 558.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_2/Inventory_Slot_4"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.20001
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_5" type="TextureButton" parent="Inventory_Row_2"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 584.0
+offset_top = 16.0
+offset_right = 624.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_2/Inventory_Slot_5"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.20001
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_6" type="TextureButton" parent="Inventory_Row_2"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 650.0
+offset_top = 16.0
+offset_right = 690.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_2/Inventory_Slot_6"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.20001
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_7" type="TextureButton" parent="Inventory_Row_2"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 716.0
+offset_top = 16.0
+offset_right = 756.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_2/Inventory_Slot_7"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.2
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_8" type="TextureButton" parent="Inventory_Row_2"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 782.0
+offset_top = 16.0
+offset_right = 822.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_2/Inventory_Slot_8"]
+layout_mode = 0
+offset_left = 3.19995
+offset_top = 3.20001
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Row_3" type="CanvasGroup" parent="."]
+position = Vector2(0, 126)
+
+[node name="Inventory_Slot_1" type="TextureButton" parent="Inventory_Row_3"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 16.0
+offset_right = 360.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_3/Inventory_Slot_1"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.2
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_2" type="TextureButton" parent="Inventory_Row_3"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 386.0
+offset_top = 16.0
+offset_right = 426.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_3/Inventory_Slot_2"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.2
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_3" type="TextureButton" parent="Inventory_Row_3"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 452.0
+offset_top = 16.0
+offset_right = 492.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_3/Inventory_Slot_3"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.2
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_4" type="TextureButton" parent="Inventory_Row_3"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 518.0
+offset_top = 16.0
+offset_right = 558.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_3/Inventory_Slot_4"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.20001
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_5" type="TextureButton" parent="Inventory_Row_3"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 584.0
+offset_top = 16.0
+offset_right = 624.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_3/Inventory_Slot_5"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.20001
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_6" type="TextureButton" parent="Inventory_Row_3"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 650.0
+offset_top = 16.0
+offset_right = 690.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_3/Inventory_Slot_6"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.20001
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_7" type="TextureButton" parent="Inventory_Row_3"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 716.0
+offset_top = 16.0
+offset_right = 756.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_3/Inventory_Slot_7"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.2
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_8" type="TextureButton" parent="Inventory_Row_3"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 782.0
+offset_top = 16.0
+offset_right = 822.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_3/Inventory_Slot_8"]
+layout_mode = 0
+offset_left = 3.19995
+offset_top = 3.20001
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Row_4" type="CanvasGroup" parent="."]
+position = Vector2(0, 189)
+
+[node name="Inventory_Slot_1" type="TextureButton" parent="Inventory_Row_4"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 16.0
+offset_right = 360.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_4/Inventory_Slot_1"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.2
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_2" type="TextureButton" parent="Inventory_Row_4"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 386.0
+offset_top = 16.0
+offset_right = 426.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_4/Inventory_Slot_2"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.2
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_3" type="TextureButton" parent="Inventory_Row_4"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 452.0
+offset_top = 16.0
+offset_right = 492.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_4/Inventory_Slot_3"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.2
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_4" type="TextureButton" parent="Inventory_Row_4"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 518.0
+offset_top = 16.0
+offset_right = 558.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_4/Inventory_Slot_4"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.20001
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_5" type="TextureButton" parent="Inventory_Row_4"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 584.0
+offset_top = 16.0
+offset_right = 624.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_4/Inventory_Slot_5"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.20001
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="Inventory_Slot_6" type="TextureButton" parent="Inventory_Row_4"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 650.0
+offset_top = 16.0
+offset_right = 690.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("1_y7ldr")
+texture_pressed = ExtResource("1_y7ldr")
+texture_hover = ExtResource("3_vqqib")
+texture_focused = ExtResource("3_vqqib")
+stretch_mode = 0
+
+[node name="Inventory_Slot_Texture" type="TextureRect" parent="Inventory_Row_4/Inventory_Slot_6"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 3.20001
+offset_right = 37.2
+offset_bottom = 37.2
+texture = ExtResource("6_64ss7")
+expand_mode = 1
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 782.0
+offset_top = 605.0
+offset_right = 823.0
+offset_bottom = 625.0
+theme = ExtResource("2_r7e3h")
+text = "Back"
+
+[node name="MarketButton" type="TextureButton" parent="."]
+offset_left = 324.0
+offset_top = 571.0
+offset_right = 386.0
+offset_bottom = 637.0
+texture_normal = ExtResource("7_j4u2n")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AudioNode" type="Node2D" parent="."]
+
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="AudioNode"]
+stream = ExtResource("7_nhos4")
+
+[node name="SellSound" type="AudioStreamPlayer2D" parent="AudioNode"]
+stream = ExtResource("9_cupmq")
+
+[connection signal="pressed" from="ColorRect/HBoxContainer/ColorRect/Market/SellButton" to="." method="_on_sell_button_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/ColorRect/Market/IncreaseCatchButton" to="." method="_on_increase_catch_button_pressed"]
+[connection signal="pressed" from="Inventory_Row_1/Inventory_Slot_1" to="." method="_on_inventory_slot_1_pressed"]
+[connection signal="pressed" from="Inventory_Row_1/Inventory_Slot_2" to="." method="_on_inventory_slot_2_pressed"]
+[connection signal="pressed" from="Inventory_Row_1/Inventory_Slot_3" to="." method="_on_inventory_slot_3_pressed"]
+[connection signal="pressed" from="Inventory_Row_1/Inventory_Slot_4" to="." method="_on_inventory_slot_4_pressed"]
+[connection signal="pressed" from="Inventory_Row_1/Inventory_Slot_5" to="." method="_on_inventory_slot_5_pressed"]
+[connection signal="pressed" from="Inventory_Row_1/Inventory_Slot_6" to="." method="_on_inventory_slot_6_pressed"]
+[connection signal="pressed" from="Inventory_Row_1/Inventory_Slot_7" to="." method="_on_inventory_slot_7_pressed"]
+[connection signal="pressed" from="Inventory_Row_1/Inventory_Slot_8" to="." method="_on_inventory_slot_8_pressed"]
+[connection signal="pressed" from="Inventory_Row_2/Inventory_Slot_1" to="." method="_on_inventory_slot_1_row_2_pressed"]
+[connection signal="pressed" from="Inventory_Row_2/Inventory_Slot_2" to="." method="_on_inventory_slot_2_row_2_pressed"]
+[connection signal="pressed" from="Inventory_Row_2/Inventory_Slot_3" to="." method="_on_inventory_slot_3_row_2_pressed"]
+[connection signal="pressed" from="Inventory_Row_2/Inventory_Slot_4" to="." method="_on_inventory_slot_4_row_2_pressed"]
+[connection signal="pressed" from="Inventory_Row_2/Inventory_Slot_5" to="." method="_on_inventory_slot_5_row_2_pressed"]
+[connection signal="pressed" from="Inventory_Row_2/Inventory_Slot_6" to="." method="_on_inventory_slot_6_row_2_pressed"]
+[connection signal="pressed" from="Inventory_Row_2/Inventory_Slot_7" to="." method="_on_inventory_slot_7_row_2_pressed"]
+[connection signal="pressed" from="Inventory_Row_2/Inventory_Slot_8" to="." method="_on_inventory_slot_8_row_2_pressed"]
+[connection signal="pressed" from="Inventory_Row_3/Inventory_Slot_1" to="." method="_on_inventory_slot_1_row_3_pressed"]
+[connection signal="pressed" from="Inventory_Row_3/Inventory_Slot_2" to="." method="_on_inventory_slot_2_row_3_pressed"]
+[connection signal="pressed" from="Inventory_Row_3/Inventory_Slot_3" to="." method="_on_inventory_slot_3_row_3_pressed"]
+[connection signal="pressed" from="Inventory_Row_3/Inventory_Slot_4" to="." method="_on_inventory_slot_4_row_3_pressed"]
+[connection signal="pressed" from="Inventory_Row_3/Inventory_Slot_5" to="." method="_on_inventory_slot_5_row_3_pressed"]
+[connection signal="pressed" from="Inventory_Row_3/Inventory_Slot_6" to="." method="_on_inventory_slot_6_row_3_pressed"]
+[connection signal="pressed" from="Inventory_Row_3/Inventory_Slot_7" to="." method="_on_inventory_slot_7_row_3_pressed"]
+[connection signal="pressed" from="Inventory_Row_3/Inventory_Slot_8" to="." method="_on_inventory_slot_8_row_3_pressed"]
+[connection signal="pressed" from="Inventory_Row_4/Inventory_Slot_1" to="." method="_on_inventory_slot_1_row_4_pressed"]
+[connection signal="pressed" from="Inventory_Row_4/Inventory_Slot_2" to="." method="_on_inventory_slot_2_row_4_pressed"]
+[connection signal="pressed" from="Inventory_Row_4/Inventory_Slot_3" to="." method="_on_inventory_slot_3_row_4_pressed"]
+[connection signal="pressed" from="Inventory_Row_4/Inventory_Slot_4" to="." method="_on_inventory_slot_4_row_4_pressed"]
+[connection signal="pressed" from="Inventory_Row_4/Inventory_Slot_5" to="." method="_on_inventory_slot_5_row_4_pressed"]
+[connection signal="pressed" from="Inventory_Row_4/Inventory_Slot_6" to="." method="_on_inventory_slot_6_row_4_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="MarketButton" to="." method="_on_market_button_pressed"]

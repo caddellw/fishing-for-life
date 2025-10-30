@@ -1,0 +1,29 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://br13ib4sc4ok8"]
+
+[ext_resource type="FontFile" uid="uid://ct5pmfxk4binc" path="res://stormfaze/Stormfaze.otf" id="1_ibu16"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bu2s8"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2iuig"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mk64i"]
+bg_color = Color(0, 0.427451, 1, 1)
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntwj2"]
+bg_color = Color(1, 1, 1, 1)
+
+[resource]
+default_font = ExtResource("1_ibu16")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(0, 0.427451, 1, 1)
+Button/colors/font_hover_color = Color(0, 0.427451, 1, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0.427451, 1, 1)
+Button/colors/font_pressed_color = Color(0, 0.427451, 1, 1)
+Button/fonts/font = ExtResource("1_ibu16")
+Button/styles/focus = SubResource("StyleBoxFlat_bu2s8")
+Button/styles/hover = SubResource("StyleBoxFlat_2iuig")
+Button/styles/normal = SubResource("StyleBoxFlat_mk64i")
+Button/styles/pressed = SubResource("StyleBoxFlat_ntwj2")

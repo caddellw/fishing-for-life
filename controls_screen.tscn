@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0hfappkuerqt"]
+
+[ext_resource type="Script" path="res://controls_screen.gd" id="1_jlkei"]
+[ext_resource type="PackedScene" uid="uid://q6s72nglhqag" path="res://level_transition.tscn" id="1_qria3"]
+[ext_resource type="Theme" uid="uid://br13ib4sc4ok8" path="res://default_theme.tres" id="2_838yr"]
+[ext_resource type="FontFile" uid="uid://ct5pmfxk4binc" path="res://stormfaze/Stormfaze.otf" id="4_id55c"]
+[ext_resource type="AudioStream" uid="uid://dgpstp7u0rbih" path="res://button-202966.mp3" id="5_3lvqv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cugx8"]
+font_size = 35
+shadow_size = 22
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_72wd1"]
+line_spacing = 11.0
+font_size = 25
+shadow_size = 12
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="ControlsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jlkei")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.584314, 0.913725, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.116
+offset_bottom = -0.167999
+grow_horizontal = 2
+color = Color(0, 0.45098, 0.913725, 1)
+
+[node name="BackButton" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.824
+anchor_top = 0.886
+anchor_right = 0.954
+anchor_bottom = 0.943
+offset_left = -0.248047
+offset_top = -0.128052
+offset_right = -0.00805664
+offset_bottom = -0.0640259
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("2_838yr")
+text = "Back"
+
+[node name="LevelTransition" parent="." instance=ExtResource("1_qria3")]
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0147569
+anchor_top = 0.0138889
+anchor_right = 0.490451
+anchor_bottom = 0.0925926
+theme_override_fonts/font = ExtResource("4_id55c")
+theme_override_font_sizes/font_size = 35
+text = "Controls"
+label_settings = SubResource("LabelSettings_cugx8")
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Body" type="Label" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 83.0
+offset_right = 1094.0
+offset_bottom = 554.0
+theme_override_fonts/font = ExtResource("4_id55c")
+theme_override_font_sizes/font_size = 25
+text = "Shift - Casts your rod while near water
+Enter - Communicate with NPCs (2x to speed up)
+Space - Reel in your fish after Cast
+I - Opens Inventory
+L - Opens Logbook
+R - Restart Game
+Left Click - Click any buttons or Inventory/Logbook Image
+WASD - Movement in every direction
+ ←↑ ↓→ - Movement in every direction
+Money Bag Icon - Buy/Sell
+BackPack Icon - Inventory
+Book Icon - Log Book/Record Book"
+label_settings = SubResource("LabelSettings_72wd1")
+autowrap_mode = 2
+
+[node name="AudioNode" type="Node2D" parent="."]
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="AudioNode"]
+stream = ExtResource("5_3lvqv")
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

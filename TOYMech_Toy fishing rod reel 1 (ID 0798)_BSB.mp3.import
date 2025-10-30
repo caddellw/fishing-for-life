@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://crkvtxupu3uv4"
+path="res://.godot/imported/TOYMech_Toy fishing rod reel 1 (ID 0798)_BSB.mp3-ec4e35a975e34c741f5e09f5c4a1c1dc.mp3str"
+
+[deps]
+
+source_file="res://TOYMech_Toy fishing rod reel 1 (ID 0798)_BSB.mp3"
+dest_files=["res://.godot/imported/TOYMech_Toy fishing rod reel 1 (ID 0798)_BSB.mp3-ec4e35a975e34c741f5e09f5c4a1c1dc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

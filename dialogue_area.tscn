@@ -1,0 +1,180 @@
+[gd_scene load_steps=9 format=3 uid="uid://be5nealuwfbxl"]
+
+[ext_resource type="Texture2D" uid="uid://c1e16qlb5u5b0" path="res://Dialogue_Box_Tile_Map.png" id="1_xwvst"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ebo38"]
+texture = ExtResource("1_xwvst")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+4:0/size_in_atlas = Vector2i(2, 2)
+4:0/0 = 0
+4:0/0/terrain_set = 0
+4:0/0/terrain = 0
+4:0/0/terrains_peering_bit/right_side = 0
+4:0/0/terrains_peering_bit/bottom_right_corner = 0
+4:0/0/terrains_peering_bit/bottom_side = 0
+4:0/0/terrains_peering_bit/bottom_left_corner = 0
+4:0/0/terrains_peering_bit/left_side = 0
+2:0/size_in_atlas = Vector2i(2, 2)
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 0
+2:0/0/terrains_peering_bit/bottom_side = 0
+2:0/0/terrains_peering_bit/bottom_left_corner = 0
+2:0/0/terrains_peering_bit/left_side = 0
+0:2/size_in_atlas = Vector2i(2, 2)
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrain = 0
+0:2/0/terrains_peering_bit/right_side = 0
+0:2/0/terrains_peering_bit/top_side = 0
+0:2/0/terrains_peering_bit/top_right_corner = 0
+2:2/size_in_atlas = Vector2i(2, 2)
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/terrain = 0
+2:2/0/terrains_peering_bit/left_side = 0
+2:2/0/terrains_peering_bit/top_left_corner = 0
+2:2/0/terrains_peering_bit/top_side = 0
+4:2/size_in_atlas = Vector2i(2, 2)
+4:2/0 = 0
+4:2/0/terrain_set = 0
+4:2/0/terrain = 0
+4:2/0/terrains_peering_bit/right_side = 0
+4:2/0/terrains_peering_bit/left_side = 0
+4:2/0/terrains_peering_bit/top_left_corner = 0
+4:2/0/terrains_peering_bit/top_side = 0
+4:2/0/terrains_peering_bit/top_right_corner = 0
+2:4/size_in_atlas = Vector2i(2, 2)
+2:4/0 = 0
+2:4/0/terrain_set = 0
+2:4/0/terrain = 0
+2:4/0/terrains_peering_bit/right_side = 0
+2:4/0/terrains_peering_bit/bottom_right_corner = 0
+2:4/0/terrains_peering_bit/bottom_side = 0
+2:4/0/terrains_peering_bit/top_side = 0
+2:4/0/terrains_peering_bit/top_right_corner = 0
+4:4/size_in_atlas = Vector2i(2, 2)
+4:4/0 = 0
+4:4/0/terrain_set = 0
+4:4/0/terrain = 0
+4:4/0/terrains_peering_bit/bottom_side = 0
+4:4/0/terrains_peering_bit/bottom_left_corner = 0
+4:4/0/terrains_peering_bit/left_side = 0
+4:4/0/terrains_peering_bit/top_left_corner = 0
+4:4/0/terrains_peering_bit/top_side = 0
+0:4/size_in_atlas = Vector2i(2, 2)
+0:4/0 = 0
+0:4/0/terrain_set = 0
+0:4/0/terrain = 0
+0:4/0/terrains_peering_bit/right_side = 0
+0:4/0/terrains_peering_bit/bottom_right_corner = 0
+0:4/0/terrains_peering_bit/bottom_side = 0
+0:4/0/terrains_peering_bit/bottom_left_corner = 0
+0:4/0/terrains_peering_bit/left_side = 0
+0:4/0/terrains_peering_bit/top_left_corner = 0
+0:4/0/terrains_peering_bit/top_side = 0
+0:4/0/terrains_peering_bit/top_right_corner = 0
+
+[sub_resource type="TileSet" id="TileSet_nhvuf"]
+tile_size = Vector2i(32, 32)
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Base_Layer"
+terrain_set_0/terrain_0/color = Color(0.727274, 0, 0.121465, 1)
+sources/0 = SubResource("TileSetAtlasSource_ebo38")
+
+[sub_resource type="Animation" id="Animation_wlyhp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TileMap/Dialogue:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+
+[sub_resource type="Animation" id="Animation_co3n2"]
+resource_name = "found"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TileMap/Dialogue:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 3.8, 4, 4.2, 4.4, 4.6, 4.8, 5, 5.2, 5.4, 5.6, 5.8, 6, 6.2, 6.4, 6.6, 6.8, 7, 7.2, 7.4, 7.6, 7.8, 8, 8.2, 8.4, 8.6, 8.8, 9, 9.2, 9.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Y", "Yo", "You", "You f", "You fo", "You fou", "You foun", "You found", "You found a", "You found a e", "You found a ea", "You found a eas", "You found a east", "You found a easte", "You found a easter", "You found a easter e", "You found a easter eg", "You found a easter egg.", "You found a easter egg. S", "You found a easter egg. Se", "You found a easter egg. Sea", "You found a easter egg. Seah", "You found a easter egg. Seaho", "You found a easter egg. Seahor", "You found a easter egg. Seahors", "You found a easter egg. Seahorse", "You found a easter egg. Seahorse p", "You found a easter egg. Seahorse pe", "You found a easter egg. Seahorse per", "You found a easter egg. Seahorse perc", "You found a easter egg. Seahorse perce", "You found a easter egg. Seahorse percen", "You found a easter egg. Seahorse percent", "You found a easter egg. Seahorse percent i", "You found a easter egg. Seahorse percent in", "You found a easter egg. Seahorse percent inc", "You found a easter egg. Seahorse percent incr", "You found a easter egg. Seahorse percent incre", "You found a easter egg. Seahorse percent increa", "You found a easter egg. Seahorse percent increas", "You found a easter egg. Seahorse percent increase", "You found a easter egg. Seahorse percent increased", "You found a easter egg. Seahorse percent increased b", "You found a easter egg. Seahorse percent increased by", "You found a easter egg. Seahorse percent increased by 0", "You found a easter egg. Seahorse percent increased by 0.1", "You found a easter egg. Seahorse percent increased by 0.1%", "You found a easter egg. Seahorse percent increased by 0.1%."]
+}
+
+[sub_resource type="Animation" id="Animation_ddguv"]
+resource_name = "record_breaker"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TileMap/Dialogue:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 3.8, 4, 4.2, 4.4, 4.6, 4.8, 5, 5.2, 5.4, 5.6, 5.8, 6, 6.2, 6.4, 6.6, 6.8, 7, 7.2, 7.4, 7.6, 7.8, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["H", "Ho", "How", "How d", "How di", "How did", "How did y", "How did yo", "How did you", "How did you b", "How did you be", "How did you bea", "How did you beat", "How did you beat m", "How did you beat me?", "How did you beat me? T", "How did you beat me? Th", "How did you beat me? Tha", "How did you beat me? That", "How did you beat me? That's", "How did you beat me? That's a", "How did you beat me? That's ab", "How did you beat me? That's abs", "How did you beat me? That's absu", "How did you beat me? That's absur", "How did you beat me? That's absurd!", "How did you beat me? That's absurd! A", "How did you beat me? That's absurd! An", "How did you beat me? That's absurd! Any", "How did you beat me? That's absurd! Anyw", "How did you beat me? That's absurd! Anywa", "How did you beat me? That's absurd! Anyway", "How did you beat me? That's absurd! Anyways,", "How did you beat me? That's absurd! Anyways, w", "How did you beat me? That's absurd! Anyways, we", "How did you beat me? That's absurd! Anyways, wel", "How did you beat me? That's absurd! Anyways, well", "How did you beat me? That's absurd! Anyways, well d", "How did you beat me? That's absurd! Anyways, well do", "How did you beat me? That's absurd! Anyways, well don", "How did you beat me? That's absurd! Anyways, well done."]
+}
+
+[sub_resource type="Animation" id="Animation_dy8dn"]
+resource_name = "show_dialogue"
+length = 17.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TileMap/Dialogue:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.7, 1, 1.2, 1.5, 1.7, 2, 2.2, 2.5, 2.7, 3, 3.2, 3.5, 3.7, 4, 4.1, 4.2, 4.5, 4.7, 5, 5.2, 5.5, 5.7, 6, 6.2, 6.5, 6.7, 7, 7.2, 7.5, 7.7, 8, 8.2, 8.5, 8.7, 9, 9.2, 9.5, 9.7, 10, 10.2, 10.5, 10.7, 11, 11.1, 11.2, 11.5, 11.7, 12, 12.2, 12.5, 12.7, 13, 13.2, 13.5, 13.7, 14, 14.2, 14.5, 14.7, 15, 15.2, 15.5, 15.7, 16, 16.2, 16.5, 16.7, 17),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["H", "He", "Hel", "Hell", "Hello,", "Hello, m", "Hello, my", "Hello, my n", "Hello, my na", "Hello, my nam", "Hello, my name", "Hello, my name i", "Hello, my name is", "Hello, my name is B", "Hello, my name is Bi", "Hello, my name is Bil", "Hello, my name is Bill", "Hello, my name is Bill.", "Hello, my name is Bill. I", "Hello, my name is Bill. I a", "Hello, my name is Bill. I am", "Hello, my name is Bill. I am t", "Hello, my name is Bill. I am th", "Hello, my name is Bill. I am the", "Hello, my name is Bill. I am the b", "Hello, my name is Bill. I am the be", "Hello, my name is Bill. I am the bes", "Hello, my name is Bill. I am the best", "Hello, my name is Bill. I am the best a", "Hello, my name is Bill. I am the best an", "Hello, my name is Bill. I am the best ang", "Hello, my name is Bill. I am the best angl", "Hello, my name is Bill. I am the best angle", "Hello, my name is Bill. I am the best angler", "Hello, my name is Bill. I am the best angler o", "Hello, my name is Bill. I am the best angler on", "Hello, my name is Bill. I am the best angler on t", "Hello, my name is Bill. I am the best angler on th", "Hello, my name is Bill. I am the best angler on the", "Hello, my name is Bill. I am the best angler on thes", "Hello, my name is Bill. I am the best angler on these", "Hello, my name is Bill. I am the best angler on these l", "Hello, my name is Bill. I am the best angler on these la", "Hello, my name is Bill. I am the best angler on these lan", "Hello, my name is Bill. I am the best angler on these land", "Hello, my name is Bill. I am the best angler on these lands", "Hello, my name is Bill. I am the best angler on these lands.", "Hello, my name is Bill. I am the best angler on these lands. I", "Hello, my name is Bill. I am the best angler on these lands. I d", "Hello, my name is Bill. I am the best angler on these lands. I do", "Hello, my name is Bill. I am the best angler on these lands. I dou", "Hello, my name is Bill. I am the best angler on these lands. I doub", "Hello, my name is Bill. I am the best angler on these lands. I doubt", "Hello, my name is Bill. I am the best angler on these lands. I doubt y", "Hello, my name is Bill. I am the best angler on these lands. I doubt yo", "Hello, my name is Bill. I am the best angler on these lands. I doubt you", "Hello, my name is Bill. I am the best angler on these lands. I doubt you w", "Hello, my name is Bill. I am the best angler on these lands. I doubt you wi", "Hello, my name is Bill. I am the best angler on these lands. I doubt you wil", "Hello, my name is Bill. I am the best angler on these lands. I doubt you will", "Hello, my name is Bill. I am the best angler on these lands. I doubt you will e", "Hello, my name is Bill. I am the best angler on these lands. I doubt you will ev", "Hello, my name is Bill. I am the best angler on these lands. I doubt you will eve", "Hello, my name is Bill. I am the best angler on these lands. I doubt you will ever", "Hello, my name is Bill. I am the best angler on these lands. I doubt you will ever b", "Hello, my name is Bill. I am the best angler on these lands. I doubt you will ever be", "Hello, my name is Bill. I am the best angler on these lands. I doubt you will ever bea", "Hello, my name is Bill. I am the best angler on these lands. I doubt you will ever beat", "Hello, my name is Bill. I am the best angler on these lands. I doubt you will ever beat m", "Hello, my name is Bill. I am the best angler on these lands. I doubt you will ever beat me", "Hello, my name is Bill. I am the best angler on these lands. I doubt you will ever beat me."]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kca5w"]
+_data = {
+"RESET": SubResource("Animation_wlyhp"),
+"found": SubResource("Animation_co3n2"),
+"record_breaker": SubResource("Animation_ddguv"),
+"show_dialogue": SubResource("Animation_dy8dn")
+}
+
+[node name="DialogueArea" type="CanvasLayer"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_nhvuf")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 2, 65537, 262144, 2, 65538, 262144, 2, 65539, 262144, 2, 65540, 262144, 2, 65541, 262144, 2, 65542, 131072, 2, 6, 131072, 0, 5, 262144, 0, 4, 262144, 0, 3, 262144, 0, 2, 262144, 0, 1, 262144, 0)
+
+[node name="Dialogue" type="Label" parent="TileMap"]
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 218.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 7
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kca5w")
+}

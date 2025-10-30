@@ -1,0 +1,156 @@
+[gd_scene load_steps=14 format=3 uid="uid://drtov1xb0osqa"]
+
+[ext_resource type="Script" path="res://fish.gd" id="1_r6rin"]
+[ext_resource type="Texture2D" uid="uid://cyvij4hca556j" path="res://Assets/Fishing_Assets.png" id="2_cyj2v"]
+[ext_resource type="PackedScene" uid="uid://b8yud8qnla8m1" path="res://inventory.tscn" id="3_d8dly"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ko41f"]
+atlas = ExtResource("2_cyj2v")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aktx0"]
+atlas = ExtResource("2_cyj2v")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi5cs"]
+atlas = ExtResource("2_cyj2v")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64i7n"]
+atlas = ExtResource("2_cyj2v")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u51fk"]
+atlas = ExtResource("2_cyj2v")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nbae"]
+atlas = ExtResource("2_cyj2v")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m1nh6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ko41f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aktx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aktx0")
+}],
+"loop": true,
+"name": &"octopus",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ko41f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi5cs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi5cs")
+}],
+"loop": true,
+"name": &"pufferfish",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ko41f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64i7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64i7n")
+}],
+"loop": true,
+"name": &"seahorse",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ko41f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u51fk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u51fk")
+}],
+"loop": true,
+"name": &"sockeye_salmon",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ko41f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nbae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nbae")
+}],
+"loop": true,
+"name": &"starfish",
+"speed": 2.0
+}]
+
+[sub_resource type="Animation" id="Animation_iq02b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_obivt"]
+resource_name = "display_fish"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_466yk"]
+_data = {
+"RESET": SubResource("Animation_iq02b"),
+"display_fish": SubResource("Animation_obivt")
+}
+
+[node name="Fish" type="CharacterBody2D"]
+script = ExtResource("1_r6rin")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_m1nh6")
+animation = &"octopus"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_466yk")
+}
+
+[node name="Inventory" parent="." instance=ExtResource("3_d8dly")]
+visible = false

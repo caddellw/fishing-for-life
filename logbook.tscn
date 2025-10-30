@@ -1,0 +1,331 @@
+[gd_scene load_steps=15 format=3 uid="uid://2fn3868ihro5"]
+
+[ext_resource type="Texture2D" uid="uid://b56y0o7iot5ge" path="res://Assets/Octopus_Image.png" id="1_5aoyg"]
+[ext_resource type="Script" path="res://logbook.gd" id="1_seigd"]
+[ext_resource type="Texture2D" uid="uid://dkolg61nwtlq3" path="res://Logbook_Images_Border_Asset.png" id="2_vyw81"]
+[ext_resource type="FontFile" uid="uid://ct5pmfxk4binc" path="res://stormfaze/Stormfaze.otf" id="3_r3xgp"]
+[ext_resource type="Texture2D" uid="uid://cm8h2utf4qdci" path="res://Assets/Pufferfish_Image.png" id="4_5qf68"]
+[ext_resource type="Texture2D" uid="uid://eje6fu17en0u" path="res://Assets/Seahorse_Image.png" id="5_joxel"]
+[ext_resource type="Texture2D" uid="uid://kx8c07lut2i1" path="res://Assets/Sockeye_Salmon_Image.png" id="6_5yx1d"]
+[ext_resource type="Texture2D" uid="uid://bu3p5kcpgjjg4" path="res://Assets/Starfish_Image.png" id="7_arvj3"]
+[ext_resource type="AudioStream" uid="uid://dgpstp7u0rbih" path="res://button-202966.mp3" id="9_0uf7m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6lfrd"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf00g"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_noi0a"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwkga"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_iw75i"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_6lfrd")
+Button/styles/hover = SubResource("StyleBoxFlat_yf00g")
+Button/styles/normal = SubResource("StyleBoxFlat_noi0a")
+Button/styles/pressed = SubResource("StyleBoxFlat_wwkga")
+
+[node name="Logbook" type="CanvasLayer"]
+script = ExtResource("1_seigd")
+
+[node name="BlankPage" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(576, 648)
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = -536.0
+offset_bottom = -608.0
+color = Color(0.9915, 1, 0.83, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Page1" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(576, 648)
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 576.0
+offset_right = 576.0
+color = Color(0.9915, 1, 0.83, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="OctopusImage" type="TextureRect" parent="Page1"]
+z_index = 1
+layout_mode = 0
+offset_left = 192.0
+offset_top = 75.0
+offset_right = 392.0
+offset_bottom = 275.0
+texture = ExtResource("1_5aoyg")
+
+[node name="TextureRect" type="TextureRect" parent="Page1"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = -48.0
+offset_right = 516.0
+offset_bottom = 402.0
+texture = ExtResource("2_vyw81")
+expand_mode = 1
+
+[node name="BestWeight" type="Label" parent="Page1"]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 396.0
+offset_right = 413.0
+offset_bottom = 436.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_r3xgp")
+theme_override_font_sizes/font_size = 33
+text = "Best Weight: "
+autowrap_mode = 2
+
+[node name="NextPageButton" type="Button" parent="Page1"]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 552.0
+offset_right = 372.0
+offset_bottom = 597.0
+theme = SubResource("Theme_iw75i")
+theme_override_fonts/font = ExtResource("3_r3xgp")
+theme_override_font_sizes/font_size = 30
+text = "Next Page"
+
+[node name="Page2" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(576, 648)
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+color = Color(0.9915, 1, 0.83, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="PufferfishImage" type="TextureRect" parent="Page2"]
+z_index = 1
+layout_mode = 0
+offset_left = 192.0
+offset_top = 75.0
+offset_right = 392.0
+offset_bottom = 275.0
+texture = ExtResource("4_5qf68")
+
+[node name="TextureRect" type="TextureRect" parent="Page2"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = -48.0
+offset_right = 516.0
+offset_bottom = 402.0
+texture = ExtResource("2_vyw81")
+expand_mode = 1
+
+[node name="BestWeight" type="Label" parent="Page2"]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 396.0
+offset_right = 413.0
+offset_bottom = 436.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_r3xgp")
+theme_override_font_sizes/font_size = 33
+text = "Best Weight: "
+autowrap_mode = 2
+
+[node name="LastPageButton" type="Button" parent="Page2"]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 552.0
+offset_right = 372.0
+offset_bottom = 597.0
+theme = SubResource("Theme_iw75i")
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_r3xgp")
+theme_override_font_sizes/font_size = 30
+text = "Last Page"
+
+[node name="Page3" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(576, 648)
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 576.0
+offset_right = 576.0
+color = Color(0.9915, 1, 0.83, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="SeahorseImage" type="TextureRect" parent="Page3"]
+z_index = 1
+layout_mode = 0
+offset_left = 192.0
+offset_top = 75.0
+offset_right = 392.0
+offset_bottom = 275.0
+texture = ExtResource("5_joxel")
+
+[node name="TextureRect" type="TextureRect" parent="Page3"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = -48.0
+offset_right = 516.0
+offset_bottom = 402.0
+texture = ExtResource("2_vyw81")
+expand_mode = 1
+
+[node name="BestWeight" type="Label" parent="Page3"]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 396.0
+offset_right = 413.0
+offset_bottom = 436.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_r3xgp")
+theme_override_font_sizes/font_size = 33
+text = "Best Weight: "
+autowrap_mode = 2
+
+[node name="NextPageButton" type="Button" parent="Page3"]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 552.0
+offset_right = 372.0
+offset_bottom = 597.0
+theme = SubResource("Theme_iw75i")
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_r3xgp")
+theme_override_font_sizes/font_size = 30
+text = "Next Page"
+
+[node name="Page4" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(576, 648)
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+color = Color(0.9915, 1, 0.83, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="SockeyeSalmonImage" type="TextureRect" parent="Page4"]
+z_index = 1
+layout_mode = 0
+offset_left = 192.0
+offset_top = 75.0
+offset_right = 392.0
+offset_bottom = 275.0
+texture = ExtResource("6_5yx1d")
+
+[node name="TextureRect" type="TextureRect" parent="Page4"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = -48.0
+offset_right = 516.0
+offset_bottom = 402.0
+texture = ExtResource("2_vyw81")
+expand_mode = 1
+
+[node name="BestWeight" type="Label" parent="Page4"]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 396.0
+offset_right = 413.0
+offset_bottom = 436.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_r3xgp")
+theme_override_font_sizes/font_size = 33
+text = "Best Weight: "
+autowrap_mode = 2
+
+[node name="LastPageButton" type="Button" parent="Page4"]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 552.0
+offset_right = 372.0
+offset_bottom = 597.0
+theme = SubResource("Theme_iw75i")
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_r3xgp")
+theme_override_font_sizes/font_size = 30
+text = "Last Page"
+
+[node name="Page5" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(576, 648)
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 576.0
+offset_right = 576.0
+color = Color(0.9915, 1, 0.83, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="StarfishImage" type="TextureRect" parent="Page5"]
+z_index = 1
+layout_mode = 0
+offset_left = 192.0
+offset_top = 75.0
+offset_right = 392.0
+offset_bottom = 275.0
+texture = ExtResource("7_arvj3")
+
+[node name="TextureRect" type="TextureRect" parent="Page5"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = -48.0
+offset_right = 516.0
+offset_bottom = 402.0
+texture = ExtResource("2_vyw81")
+expand_mode = 1
+
+[node name="BestWeight" type="Label" parent="Page5"]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 396.0
+offset_right = 413.0
+offset_bottom = 436.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_r3xgp")
+theme_override_font_sizes/font_size = 33
+text = "Best Weight: "
+autowrap_mode = 2
+
+[node name="BackButton" type="Button" parent="Page5"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 552.0
+offset_right = 400.0
+offset_bottom = 597.0
+theme = SubResource("Theme_iw75i")
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_r3xgp")
+theme_override_font_sizes/font_size = 30
+text = "Back To Game"
+
+[node name="Spine" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(2, 648)
+offset_left = 575.0
+offset_right = 615.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="AudioNode" type="Node2D" parent="."]
+
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="AudioNode"]
+stream = ExtResource("9_0uf7m")
+
+[connection signal="pressed" from="Page1/NextPageButton" to="." method="_on_next_page_button_pressed"]
+[connection signal="pressed" from="Page2/LastPageButton" to="." method="_on_last_page_button_pressed"]
+[connection signal="pressed" from="Page3/NextPageButton" to="." method="_on_next_page_button_pressed_2"]
+[connection signal="pressed" from="Page4/LastPageButton" to="." method="_on_last_page_button_pressed_2"]
+[connection signal="pressed" from="Page5/BackButton" to="." method="_on_back_button_pressed"]

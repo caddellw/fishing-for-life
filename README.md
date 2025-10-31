@@ -22,7 +22,8 @@ Book Icon - Logbook/Record book
 
 Game Engine Information:
 - Project was built on Godot v4.3
-- Version: https://godotengine.org/download/archive/4.3-stable/
+- Version: https://godotengine.org/download/archive/4.3-stable/\
+- Note: Files that end in .import are utilized by Godot to import assets
 
 Resources:  
 - Base Player Asset:  

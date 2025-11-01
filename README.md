@@ -2,7 +2,7 @@ Fishing for Life (Game):
 *Note: This game is a prototype and has several features that may be added in the future*  
 Game can be accessed at: https://caddellw.github.io/fishing-for-life/
 
-Plot: You've been enter into a fishing tournament on a small island, where the previous winner is still present and awaiting someone to break his records. Every catch, every moment, means a new opportunity to win. Will you come out victorious?
+Plot: You've been entered into a fishing tournament on a small island, where the previous winner is still present and awaiting someone to break his records. Every catch, every moment, means a new opportunity to win. Will you come out victorious?
 
 Key Binds:  
 Shift - Casts your rod while near water  
